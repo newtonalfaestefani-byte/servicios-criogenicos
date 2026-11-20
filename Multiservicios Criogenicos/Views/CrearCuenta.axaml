@@ -1,9 +1,36 @@
-<Window xmlns="https://github.com/avaloniaui"
+<Window Width="800"
+        Height="450"
+        MinWidth="800"
+        MinHeight="450"
+        xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Multiservicios_Criogenicos.Views.CrearCuenta"
         Title="CrearCuenta">
-  Welcome to Avalonia!
+ 
+  
+  <!--crear_usuario-->
+    <Grid ColumnDefinitions="*,*">
+
+        <!--lado izquierdo-->
+        <Border Grid.Column="0">
+            <Image Source="https://imgs.search.brave.com/ECKOLOmhR307jRYGLnc368kDGGARICdHgXxHZtTXpJ8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzIwLzIyLzQzLzM2/LzM2MF9GXzIwMjI0/MzM2ODBfZFdzYlJG/VlRvQlJJUmh6UDhJ/aEM2Sk4yakg0ZmVj/UnUuanBn" Stretch="UniformToFill"/>
+        </Border>
+
+        <!--lado derecho-->
+        <Border Grid.Column="1" Background="white">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <!--nombre-->
+                <TextBlock Text="nombre completo"
+                        HorizontalAlignment="Center"
+                        />
+                <TextBox 
+                        PlaceholderText="ejem: juena perez"
+                        />
+            </StackPanel>
+        </Border>
+
+    </Grid>
 </Window>
