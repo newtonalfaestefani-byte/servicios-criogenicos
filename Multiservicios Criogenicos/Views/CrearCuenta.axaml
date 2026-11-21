@@ -1,36 +1,117 @@
-<Window Width="800"
+<UserControl Width="800"
         Height="450"
         MinWidth="800"
         MinHeight="450"
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Multiservicios_Criogenicos.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Multiservicios_Criogenicos.Views.CrearCuenta"
+        x:DataType="vm:RegisterViewModel"
+        x:CompileBindings="True"
         Title="CrearCuenta">
  
   
   <!--crear_usuario-->
-    <Grid ColumnDefinitions="*,*">
+    <ScrollViewer Background="White">
+        <StackPanel  Margin="30, 25" MaxWidth="400">
 
-        <!--lado izquierdo-->
-        <Border Grid.Column="0">
-            <Image Source="https://imgs.search.brave.com/ECKOLOmhR307jRYGLnc368kDGGARICdHgXxHZtTXpJ8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzIwLzIyLzQzLzM2/LzM2MF9GXzIwMjI0/MzM2ODBfZFdzYlJG/VlRvQlJJUmh6UDhJ/aEM2Sk4yakg0ZmVj/UnUuanBn" Stretch="UniformToFill"/>
-        </Border>
+            <!--titulo-->
+            <TextBlock Text="crear cuenta" FontSize="24" FontWeight="Bold"
+                        HorizontalAlignment="Center" Margin="0,0,0,30"/>
 
-        <!--lado derecho-->
-        <Border Grid.Column="1" Background="white">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <!--nombre-->
-                <TextBlock Text="nombre completo"
-                        HorizontalAlignment="Center"
-                        />
-                <TextBox 
-                        PlaceholderText="ejem: juena perez"
-                        />
-            </StackPanel>
-        </Border>
+            <!--nombre completo-->
+            <TextBlock Text="nombre completo" FontSize="15"/>
+            <TextBox Text="{Binding FullName}"
+                     Width="250"
+                     Height="35"
+                     PlaceholderText="ej: juan perez"
+                     BorderBrush="LightGray"
+                     Margin="0,5,0,0"
+                     CornerRadius="20"
+                     HorizontalAlignment="Left"/>
 
-    </Grid>
-</Window>
+            <!--Email-->
+            <TextBlock Text="Correo electronico" 
+                        Margin="0,20,0,0" FontSize="15"/>
+            <TextBox Text="{Binding Email}"
+                      Width="250"
+                      Height="35"
+                      PlaceholderText="EJ: ejmplo@gmail.com"
+                      BorderBrush="LightGray"
+                      BorderThickness="1.5"
+                      Margin="0,5,0,0"
+                      CornerRadius="20"
+                      HorizontalAlignment="Left"/>
+
+            <!--contraseña-->
+            <TextBlock Text="escribe contraseña" Margin="0,20,0,0"
+                        FontSize="15"/>
+            <TextBox Text="{Binding Password}"
+                     Width="250"
+                     Height="35"
+                     PlaceholderText="escribe tu contraseña"
+                     BorderBrush="LightGray"
+                     BorderThickness="1.5"
+                     Margin="0,5,0,0"
+                     PasswordChar="*"
+                     CornerRadius="20"
+                     HorizontalAlignment="Left"/>
+
+            <!--confirmar contraseña-->
+            <TextBlock Text="confirmar contraseña" Margin="0,20,0,0"
+                        FontSize="15"/>
+            <TextBox Text="{Binding ConfirmPassword}"
+                     Width="250"
+                     Height="35"
+                     PlaceholderText="repite la contraseña"
+                     BorderBrush="LightGray"
+                     BorderThickness="1.5"
+                     Margin="0,5,0,0"
+                     PasswordChar="*"
+                     CornerRadius="20"
+                     HorizontalAlignment="Left"/>
+
+            <!--rango-->
+            <TextBlock Text="rango" FontSize="15" 
+                        Margin="0,20,0,0"/>
+            <ComboBox ItemsSource="{Binding Ranks}"
+                      Width="250"
+                      Height="35"
+                      HorizontalAlignment="Stretch"
+                      Margin="0,5,0,0"
+                      CornerRadius="20"
+                      />
+
+            <!--boton de registrarse-->
+            <Button Content="registrarse"
+                    Command="{Binding RegisterCommand}"
+                    Width="250"
+                    Height="35"
+                    HorizontalAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    Margin="0,20,0,0"
+                    Padding="10"
+                    Foreground="White"
+                    CornerRadius="20"/>
+
+                <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10">
+                    <TextBlock Text="© 2026 MULCRIOMET, C.A.&#x0A;Todos los derechos reservados."
+                               HorizontalAlignment="Center"
+                               FontWeight="500"
+                               FontSize="12"
+                               TextAlignment="Center"
+                               Margin="0,0,0,10"
+                               Foreground="Black"/>
+                    <TextBlock Text="Sistema de Gestión Interna"
+                               HorizontalAlignment="Center"
+                               FontWeight="500"
+                               FontSize="12"
+                               TextAlignment="Center"
+                               Foreground="Gray"/>
+                </StackPanel>                
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
