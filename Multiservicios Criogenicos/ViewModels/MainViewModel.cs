@@ -6,4 +6,6 @@ public partial class MainViewModel : ViewModelBase
 {
     [ObservableProperty]
     public partial string Usuario { get; set; } = "";
+    [ObservableProperty]
+    public partial string Contraseña { get; set; } = "";
 }
