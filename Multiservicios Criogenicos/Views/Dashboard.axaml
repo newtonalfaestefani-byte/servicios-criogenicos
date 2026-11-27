@@ -1,0 +1,200 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Multiservicios_Criogenicos.ViewModels"
+             x:Class="Multiservicios_Criogenicos.Views.Dashboard"
+             x:DataType="vm:DashboardViewModel"
+             x:CompileBindings="True">
+  <Grid ColumnDefinitions="230,*" Background="#F3F6FB">
+    <Border Grid.Column="0" Background="#142747">
+      <Grid RowDefinitions="Auto,*,Auto" Margin="20,24">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="12">
+          <Image Source="/Assets/mulcriomet-logo.png"
+                 Width="48"
+                 Height="48"
+                 Stretch="Uniform"/>
+          <StackPanel VerticalAlignment="Center" Spacing="2">
+            <TextBlock Text="MULCRIOMET"
+                       Foreground="White"
+                       FontSize="16"
+                       FontWeight="Bold"/>
+            <TextBlock Text="GESTIÓN INTERNA"
+                       Foreground="#AAB8D0"
+                       FontSize="9"
+                       FontWeight="SemiBold"/>
+          </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="0,44,0,0" Spacing="14">
+          <TextBlock Text="ESPACIO DE TRABAJO"
+                     Foreground="#8FA2C2"
+                     FontSize="10"
+                     FontWeight="Bold"
+                     Margin="10,0,0,4"/>
+          <Border Background="#253B60" CornerRadius="10" Padding="12">
+            <Grid ColumnDefinitions="32,*">
+              <Border Width="28" Height="28" CornerRadius="8" Background="#3154C8">
+                <TextBlock Text="C"
+                           Foreground="White"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+              </Border>
+              <TextBlock Grid.Column="1"
+                         Text="Cotizaciones"
+                         Foreground="White"
+                         FontSize="14"
+                         VerticalAlignment="Center"/>
+            </Grid>
+          </Border>
+        </StackPanel>
+
+        <Border Grid.Row="2" BorderBrush="#314565" BorderThickness="0,1,0,0" Padding="0,16,0,0">
+          <Grid ColumnDefinitions="40,*,Auto">
+            <Border Width="34" Height="34" CornerRadius="17" Background="#DCE6FA">
+              <TextBlock Text="U"
+                         Foreground="#20395F"
+                         FontWeight="Bold"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"/>
+            </Border>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="2">
+              <TextBlock Text="Sesión actual" Foreground="White" FontSize="12"/>
+              <TextBlock Text="{Binding RolActual}" Foreground="#AAB8D0" FontSize="11"/>
+            </StackPanel>
+          </Grid>
+        </Border>
+      </Grid>
+    </Border>
+
+    <Grid Grid.Column="1" RowDefinitions="70,*">
+      <Border Grid.Row="0" Background="White" BorderBrush="#E5EAF2" BorderThickness="0,0,0,1">
+        <Grid ColumnDefinitions="*,Auto" Margin="30,0">
+          <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+            <TextBlock Text="Inicio" Foreground="#8290A5" FontSize="13"/>
+            <TextBlock Text="/" Foreground="#B4BECC" FontSize="13"/>
+            <TextBlock Text="Panel principal" Foreground="#203451" FontSize="13" FontWeight="SemiBold"/>
+          </StackPanel>
+          <Border Grid.Column="1"
+                  CornerRadius="16"
+                  Background="#F1F4F9"
+                  Padding="12,7"
+                  VerticalAlignment="Center">
+            <TextBlock Text="{Binding RolActual}"
+                       Foreground="#405571"
+                       FontSize="12"
+                       FontWeight="SemiBold"/>
+          </Border>
+        </Grid>
+      </Border>
+
+      <ScrollViewer Grid.Row="1">
+        <StackPanel Margin="34,30" Spacing="24">
+          <StackPanel Spacing="6">
+            <TextBlock Text="Tu espacio de trabajo"
+                       Foreground="#1B2F4D"
+                       FontSize="28"
+                       FontWeight="Bold"/>
+            <TextBlock Text="Todo lo que necesitas para comenzar a preparar cotizaciones."
+                       Foreground="#718096"
+                       FontSize="14"/>
+          </StackPanel>
+
+          <Border CornerRadius="20" Background="#1B3154" Padding="28">
+            <Grid ColumnDefinitions="*,210" ColumnSpacing="20">
+              <StackPanel VerticalAlignment="Center" Spacing="14">
+                <Border Background="#2A4165" CornerRadius="12" Padding="10,5" HorizontalAlignment="Left">
+                  <TextBlock Text="COTIZACIONES"
+                             Foreground="#C5D5F5"
+                             FontSize="10"
+                             FontWeight="Bold"
+                             LetterSpacing="1"/>
+                </Border>
+                <TextBlock Text="Prepara tu&#x0a;próxima cotización"
+                           Foreground="White"
+                           FontSize="27"
+                           FontWeight="Bold"
+                           LineHeight="32"/>
+                <TextBlock Text="Crea propuestas claras para tus clientes y organiza el trabajo de tu equipo."
+                           Foreground="#C1CCDD"
+                           FontSize="13"
+                           TextWrapping="Wrap"
+                           MaxWidth="390"/>
+                <Button Content="Generar cotización"
+                        Width="205"
+                        Height="44"
+                        HorizontalAlignment="Left"
+                        Background="#4268E8"
+                        Foreground="White"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        CornerRadius="10"
+                        BorderThickness="0"
+                        Margin="0,6,0,0"/>
+              </StackPanel>
+
+              <Border Grid.Column="1"
+                      CornerRadius="16"
+                      Background="#243C62"
+                      Padding="18"
+                      VerticalAlignment="Center">
+                <StackPanel Spacing="14">
+                  <Grid ColumnDefinitions="*,Auto">
+                    <TextBlock Text="MULCRIOMET"
+                               Foreground="#D8E2F3"
+                               FontSize="10"
+                               FontWeight="Bold"
+                               LetterSpacing="1"/>
+                    <Border Grid.Column="1" Background="#4268E8" CornerRadius="8" Padding="7,4">
+                      <TextBlock Text="NUEVA" Foreground="White" FontSize="8" FontWeight="Bold"/>
+                    </Border>
+                  </Grid>
+                  <Border Background="#F7F9FC" CornerRadius="10" Padding="12">
+                    <StackPanel Spacing="9">
+                      <TextBlock Text="COTIZACIÓN"
+                                 Foreground="#263A58"
+                                 FontSize="11"
+                                 FontWeight="Bold"/>
+                      <Border Height="5" CornerRadius="3" Background="#DCE3EF"/>
+                      <Border Height="5" Width="92" HorizontalAlignment="Left" CornerRadius="3" Background="#DCE3EF"/>
+                      <Border Height="1" Background="#E5EAF2" Margin="0,3"/>
+                      <Grid ColumnDefinitions="*,Auto">
+                        <TextBlock Text="Total" Foreground="#728198" FontSize="10"/>
+                        <TextBlock Grid.Column="1" Text="—" Foreground="#263A58" FontSize="11" FontWeight="Bold"/>
+                      </Grid>
+                    </StackPanel>
+                  </Border>
+                </StackPanel>
+              </Border>
+            </Grid>
+          </Border>
+
+          <Border Background="White"
+                  BorderBrush="#E5EAF2"
+                  BorderThickness="1"
+                  CornerRadius="16"
+                  Padding="22">
+            <Grid ColumnDefinitions="48,*" ColumnSpacing="14">
+              <Border Width="42" Height="42" CornerRadius="12" Background="#EEF2FF">
+                <TextBlock Text="+"
+                           Foreground="#4268E8"
+                           FontSize="24"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+              </Border>
+              <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="4">
+                <TextBlock Text="Un buen comienzo"
+                           Foreground="#203451"
+                           FontSize="14"
+                           FontWeight="SemiBold"/>
+                <TextBlock Text="Este panel podrá crecer con nuevas herramientas y opciones según las necesidades de cada rol."
+                           Foreground="#718096"
+                           FontSize="12"
+                           TextWrapping="Wrap"/>
+              </StackPanel>
+            </Grid>
+          </Border>
+        </StackPanel>
+      </ScrollViewer>
+    </Grid>
+  </Grid>
+</UserControl>
