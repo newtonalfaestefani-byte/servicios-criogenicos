@@ -5,6 +5,7 @@
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:Multiservicios_Criogenicos.ViewModels"
+        xmlns:views="using:Multiservicios_Criogenicos.Views"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
@@ -17,69 +18,71 @@
         <vm:MainViewModel />
     </Design.DataContext>
 
-    <!-- Inicio de sesión -->
-        <Grid ColumnDefinitions="*,*">
-            <Border Grid.Column="0">
-                <Image Source="/Assets/fondologin.png" Stretch="UniformToFill" />
-            </Border>
-            <Border Grid.Column="1">
-                <Grid RowDefinitions="*,Auto">
-                <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="Iniciar Sesión"
-                           HorizontalAlignment="Center" 
-                           FontWeight="Bold"
-                           FontSize="40"
-                           Foreground="#162442"/>
-                    <TextBlock Text="Bienvenido al Sistema de&#x0A;MULCRIOMET"
-                           TextAlignment="Center"
-                           FontWeight="500"
-                           HorizontalAlignment="Center"
-                           FontSize="20"
-                           Foreground="#162442"/>
-                    <TextBox Width="330"
-                             Height="45"
-                             Margin="0,20,0,10"
-                             PlaceholderText="Usuario o Correo"
-                             CornerRadius="10"
-                             BorderBrush="LightGray"
-                             VerticalContentAlignment="Center"
-                             FontSize="17"
-                             FontWeight="Medium"
-                             BorderThickness="2"
-                             Text="{Binding Usuario, Mode=TwoWay}"/>
-                    <TextBox Width="330"
-                             Height="45"
-                             Margin="0,10,0,20"
-                             PlaceholderText="Contraseña"
-                             CornerRadius="10"
-                             BorderBrush="LightGray"
-                             VerticalContentAlignment="Center"
-                             FontSize="17"
-                             BorderThickness="2"
-                             FontWeight="Medium"
-                             Text="{Binding Contraseña, Mode=TwoWay}"
-                             PasswordChar="●"/>
-                    <Border Width="330"
-                            Height="45"
-                            Margin="0,10,0,5"
-                            CornerRadius="20"
-                            BoxShadow="0 4 12 0 #3B3B3B">
-                            <Button Background="#3051C9"
-                                BorderThickness="0"
-                                Padding="0"
-                                Width="330"
+    <Grid ColumnDefinitions="*,*">
+        <Border Grid.Column="0">
+            <Image Source="/Assets/fondologin.png" Stretch="UniformToFill" />
+        </Border>
+        <Border Grid.Column="1" Background="White">
+            <Grid RowDefinitions="Auto,*">
+                <Grid Grid.RowSpan="2"
+                      RowDefinitions="*,Auto"
+                      IsVisible="{Binding IsLoginVisible}">
+                    <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Iniciar Sesión"
+                                   HorizontalAlignment="Center"
+                                   FontWeight="Bold"
+                                   FontSize="40"
+                                   Foreground="#162442"/>
+                        <TextBlock Text="Bienvenido al Sistema de&#x0A;MULCRIOMET"
+                                   TextAlignment="Center"
+                                   FontWeight="500"
+                                   HorizontalAlignment="Center"
+                                   FontSize="20"
+                                   Foreground="#162442"/>
+                        <TextBox Width="330"
+                                 Height="45"
+                                 Margin="0,20,0,10"
+                                 PlaceholderText="Usuario o Correo"
+                                 CornerRadius="10"
+                                 BorderBrush="LightGray"
+                                 VerticalContentAlignment="Center"
+                                 FontSize="17"
+                                 FontWeight="Medium"
+                                 BorderThickness="2"
+                                 Text="{Binding Usuario, Mode=TwoWay}"/>
+                        <TextBox Width="330"
+                                 Height="45"
+                                 Margin="0,10,0,20"
+                                 PlaceholderText="Contraseña"
+                                 CornerRadius="10"
+                                 BorderBrush="LightGray"
+                                 VerticalContentAlignment="Center"
+                                 FontSize="17"
+                                 BorderThickness="2"
+                                 FontWeight="Medium"
+                                 Text="{Binding Contraseña, Mode=TwoWay}"
+                                 PasswordChar="●"/>
+                        <Border Width="330"
                                 Height="45"
-                                Content="Ingresar"
-                                FontWeight="Medium"
+                                Margin="0,10,0,5"
                                 CornerRadius="20"
-                                Foreground="White"
-                                VerticalContentAlignment="Center"
-                                HorizontalContentAlignment="Center"
-                                FontSize="19"/>
-                    </Border>
-                    <Grid ColumnDefinitions="*, *">
-                        <Border Grid.Column="0">
-                            <Button Background="Transparent"
+                                BoxShadow="0 4 12 0 #3B3B3B">
+                            <Button Background="#3051C9"
+                                    BorderThickness="0"
+                                    Padding="0"
+                                    Width="330"
+                                    Height="45"
+                                    Content="Ingresar"
+                                    FontWeight="Medium"
+                                    CornerRadius="20"
+                                    Foreground="White"
+                                    VerticalContentAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    FontSize="19"/>
+                        </Border>
+                        <Grid ColumnDefinitions="*,*">
+                            <Button Grid.Column="0"
+                                    Background="Transparent"
                                     Width="190"
                                     Height="30"
                                     Margin="0,10,0,20"
@@ -89,10 +92,9 @@
                                     HorizontalAlignment="Center"
                                     VerticalContentAlignment="Center"
                                     HorizontalContentAlignment="Center"/>
-                        </Border>
-                        <Border Grid.Column="1">  
-                            <Button Background="Transparent"
-                                    Click="AbrirCrearCuenta_Click"
+                            <Button Grid.Column="1"
+                                    Background="Transparent"
+                                    Command="{Binding ShowRegistrationCommand}"
                                     Width="130"
                                     Height="30"
                                     Margin="0,10,0,20"
@@ -102,26 +104,41 @@
                                     HorizontalAlignment="Center"
                                     VerticalContentAlignment="Center"
                                     HorizontalContentAlignment="Center"/>
-                        </Border>
-                    </Grid>
-                </StackPanel>
-                <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10">
-                    <TextBlock Text="© 2026 MULCRIOMET, C.A.&#x0A;Todos los derechos reservados."
-                               HorizontalAlignment="Center"
-                               FontWeight="500"
-                               FontSize="12"
-                               TextAlignment="Center"
-                               Margin="0,0,0,10"
-                               Foreground="Black"/>
-                    <TextBlock Text="Sistema de Gestión Interna"
-                               HorizontalAlignment="Center"
-                               FontWeight="500"
-                               FontSize="12"
-                               TextAlignment="Center"
-                               Foreground="Gray"/>
-                </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Margin="0,0,0,10">
+                        <TextBlock Text="© 2026 MULCRIOMET, C.A.&#x0A;Todos los derechos reservados."
+                                   HorizontalAlignment="Center"
+                                   FontWeight="500"
+                                   FontSize="12"
+                                   TextAlignment="Center"
+                                   Margin="0,0,0,10"
+                                   Foreground="Black"/>
+                        <TextBlock Text="Sistema de Gestión Interna"
+                                   HorizontalAlignment="Center"
+                                   FontWeight="500"
+                                   FontSize="12"
+                                   TextAlignment="Center"
+                                   Foreground="Gray"/>
+                    </StackPanel>
                 </Grid>
-            </Border>
-        </Grid>
+                <Button Grid.Row="0"
+                        Content="← Volver al inicio de sesión"
+                        Command="{Binding ShowLoginCommand}"
+                        IsVisible="{Binding IsRegistrationVisible}"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Margin="20,10"
+                        Background="Transparent"
+                        Foreground="#2AA6BF"/>
+                <Grid Grid.Row="1" IsVisible="{Binding IsRegistrationVisible}">
+                    <views:CrearCuenta DataContext="{Binding Registration}"/>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
 
 </Window>

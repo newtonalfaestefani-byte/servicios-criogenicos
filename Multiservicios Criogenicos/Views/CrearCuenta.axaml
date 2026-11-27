@@ -1,7 +1,4 @@
-<UserControl Width="800"
-        Height="450"
-        MinWidth="800"
-        MinHeight="450"
+<UserControl
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:Multiservicios_Criogenicos.ViewModels"
@@ -11,7 +8,7 @@
         x:Class="Multiservicios_Criogenicos.Views.CrearCuenta"
         x:DataType="vm:RegisterViewModel"
         x:CompileBindings="True"
-        Title="CrearCuenta">
+        >
  
   
   <!--crear_usuario-->
@@ -78,6 +75,7 @@
             <TextBlock Text="rango" FontSize="15" 
                         Margin="0,20,0,0"/>
             <ComboBox ItemsSource="{Binding Ranks}"
+                      SelectedItem="{Binding SelectedRank}"
                       Width="250"
                       Height="35"
                       HorizontalAlignment="Stretch"
